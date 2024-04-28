@@ -1,0 +1,43 @@
+﻿
+@model MVCWithLinq_Temp.Models.Student
+@{
+    ViewBag.Title = "DisplayStudent";
+}
+
+
+<table align="center">
+    <tr>
+        <td>
+            <h2 style="color:silver; background-color:lavender;text-align:center;">Student Details</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="card " style="width: 18rem;">
+                <img src="~/Uploads/@Model.Photo" class="card-img-top" alt="No Image">
+                <div class="card-body">
+                    <h3> @Html.DisplayNameFor(S => S.Sid) :-     &nbsp;&nbsp;  @Model.Sid</h3>
+                    <h3> @Html.DisplayNameFor(S => S.Name) :-     &nbsp;&nbsp;  @Model.Name</h3>
+                    <h3> @Html.DisplayNameFor(S => S.Class) :-     &nbsp;&nbsp;  @Model.Class</h3>
+                    <h3> @Html.DisplayNameFor(S => S.Fees) :-     &nbsp;&nbsp;  @Model.Fees</h3>
+
+                </div>
+            </div>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" class="btn btn-outline-warning" style="width:100%">  @Html.ActionLink("Edit", "EditStudent", new { sid = Model.Sid })</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" class="btn btn-outline-info" style="width:100%">@Html.ActionLink("Back to Home", "DisplayStudents") </button>
+
+        </td>
+    </tr>
+
+</table>
+

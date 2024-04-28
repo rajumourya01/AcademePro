@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVCWithLinq_Temp.Models.Student>
+
+@{
+    ViewBag.Title = "DisplayStudents";
+}
+
+<h2>DisplayStudents</h2>
+
+
+<h2 style="color:orangered;background-color:gold;text-align:center;">DisplayStudents</h2>
+
+
+<table border="1" align="center" class="table table-success table-striped">
+    <tr>
+        <th>@Html.DisplayNameFor(S => S.Sid)</th>
+        <th>@Html.DisplayNameFor(S => S.Name)</th>
+        <th>@Html.DisplayNameFor(S => S.Class)</th>
+        <th>@Html.DisplayNameFor(S => S.Fees)</th>
+        <th>@Html.DisplayNameFor(S => S.Photo)</th>
+        <th>
+            Action Performed
+        </th>
+    </tr>
+
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(S => v.Sid)</td>
+            <td>@Html.DisplayFor(S => v.Name)</td>
+            <td>@Html.DisplayFor(S => v.Class)</td>
+            <td>@Html.DisplayFor(S => v.Fees)</td>
+            <td><img src='/Uploads/@v.Photo' width="40" height="25" alt="No Image" /></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Sid = v.Sid })
+                @Html.ActionLink("View", "DisplayStudent", new { Sid = v.Sid })
+                @Html.ActionLink("Delete", "DeleteStudnet", new { Sid = v.Sid }, new { onclick = "return confirm('Are you sure of deleting the record?')" })
+            </td>
+        </tr>
+
+    }
+    <tr>
+        <td colspan="6" align="center">
+
+            @Html.ActionLink("Add Student", "AddStudent")
+        </td>
+    </tr>
+
+</table>

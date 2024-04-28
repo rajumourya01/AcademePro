@@ -1,0 +1,53 @@
+﻿@model MVCWithLinq_Temp.Models.Student
+@{
+    ViewBag.Title = "EditStudent";
+}
+
+<table>
+    <tr>
+        <h2 style="text-align:center;color:red;background-color:cyan;">Update Student</h2>
+        @using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div>
+                @Html.LabelFor(s => s.Sid)<br />
+                @Html.TextBoxFor(s => s.Sid, new { @readonly = true })
+
+            </div>
+            <div>
+                @Html.LabelFor(s => s.Name)<br />
+                @Html.TextBoxFor(s => s.Name)
+
+            </div>
+            <div>
+                @Html.LabelFor(s => s.Class)<br />
+                @Html.TextBoxFor(s => s.Class)
+
+            </div>
+            <div>
+                @Html.LabelFor(s => s.Fees)<br />
+                @Html.TextBoxFor(s => s.Fees)
+
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(s => s.Photo)
+
+
+                <img src="~/Uploads/@Model.Photo" width="100" height="100" alt="No Image" /><br />
+                <input type="file" name="SelectedFile" />
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Update" />
+                @Html.ActionLink("Cancle", "DisplayStudents")
+
+            </div>
+
+            @Html.ActionLink("Back to Display Students", "DisplayStudents")
+
+        }
+    </tr>
+
+
+</table>
+
